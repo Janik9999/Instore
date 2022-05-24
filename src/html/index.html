@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> partials/head title="Dashkit"}}
+  </head>
+  <body>
+
+    <!-- MODALS -->
+    {{> partials/modals}}
+
+    <!-- OFFCANVAS -->
+    {{> partials/offcanvas}}
+
+    <!-- NAVIGATION -->
+    {{> partials/navs category="dashboards" page="index.html"}}
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      {{#if demoMode}}{{> navs/topbar}}{{/if}}
+      {{#is navPosition 'combo'}}{{> navs/topbar}}{{/is}}
+
+      <!-- HEADER -->
+      <div class="header">
+        <div class="{{#is navPosition 'sidenav || combo'}}container-fluid{{/is}}{{#is navPosition 'topnav'}}container{{/is}}">
+
+          <!-- Body -->
+          <div class="header-body">
+            <div class="row align-items-end">
+              <div class="col">
+
+                <!-- Pretitle -->
+                <h6 class="header-pretitle">
+                  Overview
+                </h6>
+
+                <!-- Title -->
+                <h1 class="header-title">
+                  Dashboard
+                </h1>
+
+              </div>
+              <div class="col-auto">
+
+                <!-- Button -->
+                <a href="#!" class="btn btn-primary lift">
+                  Create Report
+                </a>
+
+              </div>
+            </div> <!-- / .row -->
+          </div> <!-- / .header-body -->
+
+        </div>
+      </div> <!-- / .header -->
+
+      <!-- CARDS -->
+      <div class="{{#is navPosition 'sidenav || combo'}}container-fluid{{/is}}{{#is navPosition 'topnav'}}container{{/is}}">
+        <div class="row">
+
+          
+        </div> <!-- / .row -->
+        <div class="row">
+          <div class="col-12 col-xl-8">
+
+            <!-- Convertions -->
+            <div class="card">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  Tagesverteilung
+                </h4>
+
+                <!-- Caption -->
+                <span class="text-muted me-3">
+                  Geschlechter:
+                </span>
+
+                <!-- Switch -->
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="cardToggle" data-toggle="chart" data-target="#conversionsChart" data-trigger="change" data-action="add" data-dataset="1" />
+                  <label class="form-check-label" for="cardToggle"></label>
+                </div>
+
+              </div>
+              <div class="card-body">
+
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="conversionsChart" class="chart-canvas"></canvas>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-4">
+
+            <!-- Traffic -->
+            <div class="card">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  Verteilung
+                </h4>
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+                  <li class="nav-item" data-toggle="chart" data-target="#trafficChart" data-trigger="click" data-action="toggle" data-dataset="0">
+                    <a href="#" class="nav-link active" data-bs-toggle="tab">
+                      Frauen
+                    </a>
+                  </li>
+                  <li class="nav-item" data-toggle="chart" data-target="#trafficChart" data-trigger="click" data-action="toggle" data-dataset="1">
+                    <a href="#" class="nav-link" data-bs-toggle="tab">
+                      Männer
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+              <div class="card-body">
+
+                <!-- Chart -->
+                <div class="chart chart-appended">
+                  <canvas id="trafficChart" class="chart-canvas" data-toggle="legend" data-target="#trafficChartLegend"></canvas>
+                </div>
+
+                <!-- Legend -->
+                <div id="trafficChartLegend" class="chart-legend"></div>
+
+              </div>
+            </div>
+          </div>
+        </div> <!-- / .row -->
+        <div class="row">
+
+          <div class="col-12 col-xl-8">
+
+            <!-- Sales -->
+            <div class="card">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  Verteilung über Zeit und Gruppen
+                </h4>
+
+                <!-- Nav -->
+                <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+                  <li class="nav-item" data-toggle="chart" data-target="#salesChart" data-trigger="click" data-action="toggle" data-dataset="0">
+                    <a class="nav-link active" href="#" data-bs-toggle="tab">
+                      Männer (15-20)
+                    </a>
+                  </li>
+                  <li class="nav-item" data-toggle="chart" data-target="#salesChart" data-trigger="click" data-action="toggle" data-dataset="1">
+                    <a class="nav-link" href="#" data-bs-toggle="tab">
+                      Männer (25-32)
+                    </a>
+                  </li>
+                  <li class="nav-item" data-toggle="chart" data-target="#salesChart" data-trigger="click" data-action="toggle" data-dataset="2">
+                    <a class="nav-link" href="#" data-bs-toggle="tab">
+                      Männer (38-43)
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+              <div class="card-body">
+
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="salesChart" class="chart-canvas"></canvas>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        
+
+              </div>
+              <div class="card-footer">
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Input -->
+                    <textarea class="form-control form-control-flush form-control-auto" data-autosize rows="1" placeholder="Create a task"></textarea>
+
+                  </div>
+                  <div class="col-auto">
+
+                    <!-- Button -->
+                    <button class="btn btn-sm btn-primary">
+                      Hinzufügen
+                    </button>
+
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+            </div>
+
+          </div>
+        </div> <!-- / .row -->
+      </div>
+
+    </div><!-- / .main-content -->
+
+    <!-- JAVASCRIPT -->
+    {{> partials/scripts}}
+
+  </body>
+</html>
